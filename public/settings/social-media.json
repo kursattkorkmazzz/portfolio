@@ -1,26 +1,26 @@
 [
   {
     "icon": "mdiGithub",
-    "link": "https://google.com"
+    "link": "https://github.com/kursattkorkmazzz/"
   },
   {
     "icon": "mdiWhatsapp",
-    "link": "https://google.com",
+    "link": "https://wa.me/905530336163",
     "className": "text-white"
   },
   {
     "icon": "mdiInstagram",
-    "link": "https://google.com",
+    "link": "https://www.instagram.com/kursattkorkmazzz",
     "className": "text-white"
   },
   {
     "icon": "mdiLinkedin",
-    "link": "https://google.com",
+    "link": "https://www.linkedin.com/in/kursattkorkmazzz/",
     "className": "text-white"
   },
   {
     "icon": "mdiEmail",
-    "link": "https://google.com",
+    "link": "mailto:info@kursattkorkmazzz.com",
     "className": "text-white"
   }
 ]

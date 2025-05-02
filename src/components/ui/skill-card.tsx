@@ -36,7 +36,7 @@ export default function SkillCard({
 
   return (
     <motion.div
-      className="relative flex flex-col gap-4 items-center justify-center p-4 rounded-lg"
+      className="relative flex flex-col gap-4 items-center justify-center p-4 rounded-2xl"
       animate={{
         background: isHover
           ? `linear-gradient(to bottom, rgba(${colorRGBStyleString},1) 0%, rgba(${colorRGBStyleString},1) 100% , rgb(0,0,0) 0%)`
@@ -51,7 +51,7 @@ export default function SkillCard({
     >
       <LayoutGroup>
         <motion.div
-          className={`absolute z-1 left-1 top-1 right-1 bottom-1 rounded-md `}
+          className={`absolute z-1 left-1 top-1 right-1 bottom-1 rounded-2xl `}
           animate={{
             background: isHover
               ? `radial-gradient(circle at center top, rgba(${colorRGBStyleString},1) 0% ,rgba(${colorRGBStyleString}, 0.5) 20%, rgb(0,0,0) 60%)`

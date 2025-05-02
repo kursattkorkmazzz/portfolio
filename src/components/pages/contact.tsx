@@ -1,12 +1,18 @@
 "use client";
 import { SubmitHandler, useForm } from "react-hook-form";
 import Panel, { PanelProps } from "../common/panel";
-import { motion } from "motion/react";
+import { AnimatePresence, motion } from "motion/react";
 import testimonalList from "@/../public/settings/testimonials.json";
 import validator from "validator";
 import Icon from "@mdi/react";
 import * as Icons from "@mdi/js";
 import ContactLink from "@/../public/settings/contact.json";
+import TestimonialCard from "../ui/testimonial-card";
+import sendMail from "@/actions/send-email";
+import { createPortal } from "react-dom";
+import { useEffect, useState } from "react";
+import { cn } from "@/lib/cn";
+
 type ContactProps = PanelProps;
 
 type FormInputs = {
@@ -20,41 +26,46 @@ export default function Contact(props: ContactProps) {
     handleSubmit,
     formState: { errors },
   } = useForm<FormInputs>();
+
+  const [isSending, setIsSending] = useState(false);
+  const [sendStatus, setSendStatus] = useState<{
+    type: "success" | "error";
+    message: string;
+  } | null>(null);
+
+  const clearStatusMessage = () => {
+    setTimeout(() => {
+      setSendStatus(null);
+    }, 3000);
+  };
+
   const formHandler: SubmitHandler<FormInputs> = (data) => {
-    // TODO: send data to server
-    console.log(JSON.stringify(data, null, 3));
+    setIsSending(true);
+    sendMail(data)
+      .then(() => {
+        setSendStatus({
+          type: "success",
+          message:
+            "Mail başarıyla gönderildi. En kısa zamada geri dönüş yapacağım.",
+        });
+        setIsSending(false);
+        clearStatusMessage();
+      })
+
+      .catch((err) => {
+        setSendStatus({
+          type: "error",
+          message: "Mail gönderilirken bir hata oluştu. Lütfen tekrar deneyin.",
+        });
+        setIsSending(false);
+        clearStatusMessage();
+      });
   };
 
   return (
     <Panel className="gap-4 min-h-screen h-min shrink-0">
       {testimonalList.map((testimonal, index) => {
-        return (
-          <motion.div
-            key={index}
-            className="flex flex-col gap-2 p-4 bg-black backdrop-blur-md rounded-md"
-          >
-            <motion.div className="flex gap-4 h-min select-none">
-              <motion.img
-                src={testimonal.image}
-                alt={testimonal.name}
-                className="w-16 h-16 rounded-full border-2 border-white"
-              />
-              <motion.div className="flex flex-col gap-4 items-end">
-                <motion.p className="w-full overflow-hidden text-ellipsis">
-                  {testimonal.message}
-                </motion.p>
-                <motion.div className="flex flex-col">
-                  <motion.h3 className="text-md font-bold">
-                    {testimonal.name}
-                  </motion.h3>
-                  <motion.h3 className="text-xs font-semibold italic">
-                    {testimonal.position} - {testimonal.company}
-                  </motion.h3>
-                </motion.div>
-              </motion.div>
-            </motion.div>
-          </motion.div>
-        );
+        return <TestimonialCard key={index} {...testimonal} />;
       })}
       <motion.h2 className="select-none text-3xl font-bold">İletişim</motion.h2>
       <motion.p className="select-none">
@@ -62,6 +73,7 @@ export default function Contact(props: ContactProps) {
         e-posta gönderebilir veya anlık mesaj ile kolayca ulaşabilirsin!
       </motion.p>
       <motion.form
+        layout
         id="contact"
         onSubmit={handleSubmit(formHandler)}
         className="flex flex-col gap-4 w-full h-min"
@@ -71,7 +83,7 @@ export default function Contact(props: ContactProps) {
             required: "Bu alanın doldurulması zorunludur.",
           })}
           placeholder="Ad Soyad"
-          className="w-full p-2 border-2 border-white rounded-md focus:outline-none focus:border-[#FF5733]"
+          className="w-full p-2 border-2 border-white rounded-md focus:outline-none focus:border-orange"
         />
         {errors.fullname && (
           <motion.p className="text-xs text-red-500">
@@ -91,7 +103,7 @@ export default function Contact(props: ContactProps) {
             },
           })}
           placeholder="E-posta"
-          className="w-full p-2 border-2 border-white rounded-md focus:outline-none focus:border-[#8E44AD]"
+          className="w-full p-2 border-2 border-white rounded-md focus:outline-none focus:border-purple"
         />
         {errors.email && (
           <motion.p className="text-xs text-red-500">
@@ -103,7 +115,7 @@ export default function Contact(props: ContactProps) {
             required: "Bu alanın doldurulması zorunludur.",
           })}
           placeholder="Mesaj"
-          className="w-full h-auto p-2 border-2 border-white rounded-md focus:outline-none focus:border-[#27AE60]"
+          className="w-full h-auto p-2 border-2 border-white rounded-md focus:outline-none focus:border-green"
           onInput={(e) => {
             const target = e.currentTarget;
             target.style.height = "auto";
@@ -115,11 +127,38 @@ export default function Contact(props: ContactProps) {
             {errors.message.message}
           </motion.p>
         )}
+        <AnimatePresence>
+          {sendStatus != null && (
+            <motion.div
+              layout
+              className={cn(
+                "relative py-2 px-3 rounded-md text-sm text-white",
+                sendStatus.type === "success" ? "bg-green-500" : "bg-red-500"
+              )}
+              initial={{ opacity: 0, y: 30 }}
+              animate={{
+                opacity: 1,
+                y: 0,
+              }}
+              exit={{ opacity: 0, y: -30 }}
+            >
+              {sendStatus.message}
+            </motion.div>
+          )}
+        </AnimatePresence>
         <motion.button
+          disabled={isSending}
           type="submit"
-          className="cursor-pointer w-full p-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition duration-200"
+          className={cn(
+            "cursor-pointer w-full p-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition duration-200 flex flex-row items-center justify-center",
+            isSending && "opacity-50 "
+          )}
         >
-          Gönder
+          {isSending ? (
+            <Icon className="w-7 h-auto" path={Icons.mdiLoading} spin></Icon>
+          ) : (
+            "Gönder"
+          )}
         </motion.button>
       </motion.form>
 
@@ -133,7 +172,7 @@ export default function Contact(props: ContactProps) {
           <motion.a
             href={`mailto:${ContactLink.mail}`}
             target="_blank"
-            className="underline cursor-pointer hover:text-blue-500"
+            className="underline cursor-pointer hover:text-blue"
           >
             {ContactLink.mail}
           </motion.a>

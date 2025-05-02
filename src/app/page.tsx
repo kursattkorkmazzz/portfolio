@@ -6,13 +6,20 @@ import Contact from "@/components/pages/contact";
 
 import Hero from "@/components/pages/hero";
 import Skills from "@/components/pages/skills";
+import ScrollIndicator from "@/components/ui/scrolli-indicator";
 import useMobile from "@/hooks/useMobile";
 import { cn } from "@/lib/cn";
+import Icon from "@mdi/react";
+
+import { motion, useMotionValueEvent, useScroll } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 
 export default function Home() {
   const [isRow, setIsRow] = useState(false);
   const childElement = useRef<HTMLDivElement>(null);
+  const childScroll = useScroll({
+    container: childElement,
+  });
   const parentElement = useRef<HTMLDivElement>(null);
   const isMobile = useMobile();
   const childReachedTop = useRef<boolean>(false);
@@ -103,6 +110,13 @@ export default function Home() {
         <Skills />
         <Contact />
       </Panel>
+      {
+        <ScrollIndicator
+          isRow={isRow}
+          childContainer={childElement}
+          parentContainer={parentElement}
+        />
+      }
       <BackgroundVideo />
     </Panel>
   );
