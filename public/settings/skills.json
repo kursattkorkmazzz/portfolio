@@ -1,0 +1,65 @@
+[{
+    "icon": "mdiPencilRuler",
+    "title": "Frontend Development",
+    "description": "Yeni teknolojiler kullanarak responsive responsive web arayüzleri geliştirerek modern web deneyimleri sunuyorum.",
+    "baseColor": "#FF5733",
+    "skills":[
+        "HTML",
+        "CSS",
+        "React",
+        "NextJS",
+        "TailwindCSS",
+        "UI Design (Figma)",
+        "Typescript"
+    ]
+    },
+{
+    "icon": "mdiServer",
+    "title": "Backend Development",
+    "description": "Güvenli, ölçeklenebilir ve yüksek performanslı sunucu tarafı uygulamaları geliştirerek güçlü altyapılar oluşturuyorum.",
+    "baseColor": "#4B8DF8",
+    "skills": [
+      "Node.js",
+      "Express",
+      "PostgreSQL",
+      "MongoDB",
+      "REST API",
+      "GraphQL",
+      "InfluxDB",
+      "Prometheus",
+      "Firebase"
+    ]
+  },{
+    "icon": "mdiDesktopClassic",
+    "title": "Masaüstü Geliştirme",
+    "description": "Farklı platformlarda çalışan, kullanıcı dostu ve verimli masaüstü uygulamaları geliştiriyorum.",
+    "baseColor": "#8E44AD",
+    "skills": [
+      "Electron JS",
+      "Javascript/Typescript"
+    ]
+  },
+  {
+    "icon": "mdiCellphone",
+    "title": "Mobil Geliştirme",
+    "description": "iOS ve Android için modern mobil uygulamalar geliştirerek mobil deneyimini üst seviyeye taşıyorum.",
+    "baseColor": "#27AE60",
+    "skills": [
+      "React Native",
+      "Expo"
+    ]
+  },{
+    "icon": "mdiCloudOutline",
+    "title": "Bulut",
+    "description": "Yazılım geliştirme süreçlerini otomatikleştiriyor, CI/CD, bulut ve altyapı yönetimi ile projelerin güvenli ve verimli şekilde dağıtılmasını sağlıyorum.",
+    "baseColor": "#F5B041",
+    "skills": [
+      "Docker",
+      "Docker Compose",
+      "AWS",
+      "CI/CD",
+      "Linux",
+      "GitHub Actions",
+      "Mimari Tasarımı ve Entegrasyonu"
+    ]
+  }]

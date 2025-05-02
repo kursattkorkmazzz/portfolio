@@ -1,0 +1,12 @@
+@theme {
+    /* Mobile Breakpoints */
+    --breakpoint-ms: 320px;
+    --breakpoint-mm: 375px;
+    --breakpoint-ml: 425px;
+    /* Tablet Breakpoints */
+    --breakpoint-t: 768px;
+    /* Desktop Breakpoints */
+    --breakpoint-ds: 1024px;
+    --breakpoint-dm: 1280px;
+    --breakpoint-dl: 1440px;
+}

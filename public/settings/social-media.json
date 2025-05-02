@@ -1,0 +1,26 @@
+[
+  {
+    "icon": "mdiGithub",
+    "link": "https://google.com"
+  },
+  {
+    "icon": "mdiWhatsapp",
+    "link": "https://google.com",
+    "className": "text-white"
+  },
+  {
+    "icon": "mdiInstagram",
+    "link": "https://google.com",
+    "className": "text-white"
+  },
+  {
+    "icon": "mdiLinkedin",
+    "link": "https://google.com",
+    "className": "text-white"
+  },
+  {
+    "icon": "mdiEmail",
+    "link": "https://google.com",
+    "className": "text-white"
+  }
+]
