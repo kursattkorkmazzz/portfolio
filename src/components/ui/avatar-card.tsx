@@ -15,9 +15,8 @@ export default function AvatarCard(props: AvatarCardProps) {
       alt={props.image}
       suppressHydrationWarning
       layout
-      className={cn("w-48 h-48  mb-4 xl:mb-6 rounded-2xl", props.className)}
-      initial={{ boxShadow: "0px 0px 0px 0px var(--color-accent)" }}
-      animate={{ boxShadow: "0px 0px 20px 0px var(--color-accent)" }}
+      className={cn("w-48 h-48 mb-4 xl:mb-6 rounded-2xl", props.className)}
+      initial={{ boxShadow: "0px 0px 20px 0px #000" }}
       transition={{
         layout: { duration: 1 },
         default: {

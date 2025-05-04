@@ -1,11 +1,11 @@
 @theme {
-  --color-primary: #000000;
+  --color-primary: #323451;
   --color-accent: #007bff;
   --color-white: #ffffff;
-  --color-black: #000000;
-  --color-green: #27ae60;
-  --color-blue: #4b8df8;
+  --color-black: #000;
+  --color-green: #e77c7c;
+  --color-blue: #9bb9ea;
   --color-yellow: #f5b041;
-  --color-orange: #ff5733;
-  --color-purple: #8e44ad;
+  --color-orange: #fbad83;
+  --color-purple: #d2a1e7;
 }

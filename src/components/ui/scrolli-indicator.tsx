@@ -35,8 +35,8 @@ export default function ScrollIndicator(props: {
     <motion.div
       className={cn(
         "fixed flex flex-col  items-center justify-center gap-2 bottom-3 -translate-x-1/2 z-10  text-white",
-        props.isRow ? "left-3/4" : "left-1/2",
-        isBottom && "cursor-pointer left-1/2"
+        props.isRow ? "left-[calc(3.5/5*100%)]" : "left-1/2",
+        isBottom && "cursor-pointer left-[calc(2.2/5*100%)]"
       )}
       onClick={() => {
         if (isBottom && props.childContainer.current) {
@@ -51,14 +51,17 @@ export default function ScrollIndicator(props: {
         layout
         className=" w-9 h-auto"
         path={Icons.mdiArrowDownBoldHexagonOutline}
-        animate={{
+        initial={{
           opacity: 0.6,
-          y: 10,
+          y: 0,
+          rotate: 0,
+        }}
+        animate={{
+          y: !isBottom ? 10 : 0,
           rotate: isBottom ? 180 : 0,
         }}
         transition={{
           duration: 1,
-          opacity: { duration: 0.7 },
           y: { duration: 0.9, repeat: Infinity, repeatType: "reverse" },
         }}
       />
@@ -66,9 +69,9 @@ export default function ScrollIndicator(props: {
         {isBottom && (
           <motion.p
             className="text-sm text-white bg-black/50 px-2 py-1 rounded-md"
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 10 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
             transition={{ duration: 0.5 }}
           >
             En üst için tıkla

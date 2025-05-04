@@ -1,12 +1,16 @@
 import { cn } from "@/lib/cn";
 import Panel, { PanelProps } from "../common/panel";
 import { LayoutGroup, motion } from "motion/react";
+import Button from "../common/button";
 
 export default function About(props: PanelProps) {
   return (
     <Panel
       layout
-      className={cn("gap-5 px-0 h-screen shrink-0", props.className)}
+      className={cn(
+        "gap-5 px-0 h-screen text-center shrink-0",
+        props.className
+      )}
     >
       <LayoutGroup>
         <motion.h2 layout className="text-4xl font-bold">
@@ -22,8 +26,7 @@ export default function About(props: PanelProps) {
           yönetilebilir olmasını sağlamaktır.
         </motion.p>
 
-        <button
-          className="cursor-pointer bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-400 hover:scale-105 transition-all duration-300"
+        <Button
           onClick={(e) => {
             e.preventDefault();
             document &&
@@ -33,7 +36,7 @@ export default function About(props: PanelProps) {
           }}
         >
           İletişime Geç
-        </button>
+        </Button>
       </LayoutGroup>
     </Panel>
   );

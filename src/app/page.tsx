@@ -6,6 +6,7 @@ import Contact from "@/components/pages/contact";
 
 import Hero from "@/components/pages/hero";
 import Skills from "@/components/pages/skills";
+import Testimonials from "@/components/pages/testimonails";
 import ScrollIndicator from "@/components/ui/scrolli-indicator";
 import useMobile from "@/hooks/useMobile";
 import { cn } from "@/lib/cn";
@@ -93,13 +94,19 @@ export default function Home() {
         isRow && !isMobile ? "flex-row" : "flex-col"
       )}
     >
-      <Hero layout isRow={isRow} transition={{ duration: 0.5 }} />
+      <Hero
+        className={cn(isRow && !isMobile && "w-2/5 justify-end")}
+        layout
+        isRow={isRow}
+        transition={{ duration: 0.5 }}
+      />
       <Panel
         layout
         ref={childElement}
         className={cn(
-          "relative overflow-y-scroll justify-start",
-          !isMobile && "right-[-100%]"
+          "relative overflow-y-scroll justify-start gap-16",
+          isRow && !isMobile && "px-32",
+          !isMobile && "w-3/5"
         )}
         transition={{ duration: 0.7 }}
         animate={{
@@ -108,15 +115,16 @@ export default function Home() {
       >
         <About />
         <Skills />
+        <Testimonials />
         <Contact />
       </Panel>
-      {
-        <ScrollIndicator
-          isRow={isRow}
-          childContainer={childElement}
-          parentContainer={parentElement}
-        />
-      }
+
+      <ScrollIndicator
+        isRow={isRow}
+        childContainer={childElement}
+        parentContainer={parentElement}
+      />
+
       <BackgroundVideo />
     </Panel>
   );
