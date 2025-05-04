@@ -27,8 +27,7 @@ export default function TestimonialCard(props: TesimonialCardProps) {
       <motion.div
         suppressHydrationWarning
         className={cn(
-          "pointer-events-none origin-left -z-[1] absolute top-0 left-0 right-0 bottom-0",
-          getBackgroundColor(props.indexNumber)
+          "pointer-events-none origin-left -z-[1] absolute top-0 left-0 right-0 bottom-0 bg-white"
         )}
         animate={{
           scaleX: isHover ? 1 : 0,
@@ -39,14 +38,20 @@ export default function TestimonialCard(props: TesimonialCardProps) {
         }}
       ></motion.div>
 
-      <motion.div className="pointer-events-none relative bg-primary m-1 p-4 rounded-2xl flex gap-4 h-min select-none">
+      <motion.div
+        className="pointer-events-none relative  m-1 p-4 rounded-2xl flex gap-4 h-min select-none"
+        animate={{
+          backgroundColor: isHover ? "#2D324Eff" : "#2D324E00",
+        }}
+        transition={{
+          delay: isHover ? 0 : 0.6,
+          duration: 0, // 0.6 güzel efekt veriyor
+        }}
+      >
         <motion.img
           src={props.image}
           alt={props.name}
-          className={cn(
-            "w-16 h-16 rounded-full border-2",
-            getBorderColor(props.indexNumber)
-          )}
+          className={cn("w-16 h-16 rounded-full border-2 bg-white")}
         />
         <motion.div className="flex flex-col gap-4 items-end">
           <motion.p className="w-full overflow-hidden text-ellipsis">

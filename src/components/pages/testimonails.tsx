@@ -5,7 +5,7 @@ import TestimonialCard from "../ui/testimonial-card";
 
 export default function Testimonials() {
   return (
-    <Panel className="shrink-1 h-min w-full justify-end items-center flex-col">
+    <Panel className="shrink-1 h-min w-full justify-end gap-4 items-center flex-col">
       <motion.h2 className="select-none text-3xl font-bold">Referans</motion.h2>
       {testimonalList.map((testimonal, index) => {
         return (

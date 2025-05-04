@@ -3,8 +3,8 @@ export function getBackgroundColor(index: number): string {
     "bg-green",
     "bg-blue",
     "bg-yellow",
-    "bg-orange",
     "bg-purple",
+    "bg-orange",
   ];
   return tailwindColorClasses[index % tailwindColorClasses.length];
 }
@@ -14,8 +14,8 @@ export function getTextColor(index: number): string {
     "text-green",
     "text-blue",
     "text-yellow",
-    "text-orange",
     "text-purple",
+    "text-orange",
   ];
   return tailwindColorClasses[index % tailwindColorClasses.length];
 }
@@ -25,8 +25,8 @@ export function getBorderColor(index: number): string {
     "border-green",
     "border-blue",
     "border-yellow",
-    "border-orange",
     "border-purple",
+    "border-orange",
   ];
   return tailwindColorClasses[index % tailwindColorClasses.length];
 }

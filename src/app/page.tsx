@@ -87,11 +87,10 @@ export default function Home() {
       ref={parentElement}
       layout
       layoutScroll
-      transition={{ duration: 0.5 }}
       className={cn(
         "p-0 overflow-y-clip justify-start scroll-smooth",
         !isMobile ? "h-screen" : "h-min",
-        isRow && !isMobile ? "flex-row" : "flex-col"
+        isRow && !isMobile ? "flex-row" : "flex-column"
       )}
     >
       <Hero

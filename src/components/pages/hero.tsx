@@ -36,7 +36,7 @@ export default function Hero(props: PanelProps & { isRow: boolean }) {
         <motion.p
           layout
           transition={{ duration: 1 }}
-          className="italic font-thin text-sm md:text-md text-nowrap"
+          className="italic font-thin text-sm md:text-md text-nowrap tracking-wide mt-1"
         >
           Full-Stack Developer & Software Project Manager
         </motion.p>
@@ -47,14 +47,15 @@ export default function Hero(props: PanelProps & { isRow: boolean }) {
             transition={{
               duration: 1,
             }}
-            className="text-md md:text-lg  text-wrap text-center max-w-[600px] leading-5 mt-3"
+            className="text-md  text-wrap text-center max-w-[600px] leading-[22px] tracking-wide mt-3"
             initial={{
-              transform: "translateX(-100px)",
               opacity: 0,
             }}
             animate={{
-              transform: "translateX(0px)",
               opacity: 1,
+              transition: {
+                delay: 0.7,
+              },
             }}
           >
             Verimli ve ölçeklenebilir çözümler oluşturma tutkusuna sahip bir

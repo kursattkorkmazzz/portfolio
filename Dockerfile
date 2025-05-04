@@ -1,8 +1,9 @@
-FROM node:lts-slim AS base
+FROM node:lts-alpine AS base
 
 FROM base AS dependencies
 WORKDIR /app
 COPY ./package.json ./package-lock.json ./
+RUN npm install -g npm@11.3.0
 RUN npm install
 
 FROM base AS builder
@@ -11,7 +12,7 @@ COPY --from=dependencies /app/node_modules ./node_modules
 COPY . .
 RUN npm run build
 
-FROM base AS runnerdd
+FROM base AS runner
 WORKDIR /app
 ENV NODE_ENV=production
 COPY ./package.json ./package-lock.json ./

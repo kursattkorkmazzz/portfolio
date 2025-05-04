@@ -59,7 +59,18 @@ export default function SkillCard(props: TesimonialCardProps) {
         }}
       ></motion.div>
 
-      <motion.div className="pointer-events-none relative flex flex-col items-center justify-center h-min py-3 px-3 m-1 gap-1 bg-primary rounded-xl">
+      <motion.div
+        className={cn(
+          "pointer-events-none relative flex flex-col items-center justify-center h-min py-3 px-3 m-1 gap-1  rounded-xl"
+        )}
+        animate={{
+          backgroundColor: isHover ? "#2D324Eff" : "#2D324E00",
+        }}
+        transition={{
+          delay: isHover ? 0 : 0.6,
+          duration: 0, // 0.6 güzel efekt veriyor
+        }}
+      >
         <LayoutGroup>
           <MotionIcon
             path={(Icons as any)[props.icon]}

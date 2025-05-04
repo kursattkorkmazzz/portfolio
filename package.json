@@ -1,7 +1,11 @@
 {
-  "name": "portfolio",
+  "name": "personal-portfolio",
   "version": "0.1.0",
   "private": true,
+  "author": {
+    "name": "Kürşat Korkmaz",
+    "email": "kursat.korkmaz123@hotmail.com"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",

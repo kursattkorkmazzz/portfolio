@@ -1,8 +1,14 @@
 @font-face {
-    font-family: "open-sans";
-    src: url("/fonts/open-sans.ttf") format("truetype");
+  font-family: "open-sans";
+  src: url("/fonts/open-sans.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "lobster";
+  src: url("/fonts/lobster.ttf") format("truetype");
 }
 
 @theme static {
-    --font-open-sans: "open-sans";
+  --font-open-sans: "open-sans";
+  --font-lobster: "lobster";
 }

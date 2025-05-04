@@ -24,7 +24,7 @@ export default function BackgroundVideo() {
         loop
         muted
       >
-        <source src="/videos/bg4.mp4" type="video/mp4"></source>
+        <source src="/videos/bg.mp4" type="video/mp4"></source>
       </video>
     </div>
   );

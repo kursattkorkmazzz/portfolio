@@ -11,7 +11,7 @@ export default function Skills(props: PanelProps) {
     <Panel
       {...props}
       className={cn(
-        "h-min flex flex-col items-center justify-start shrink-0 py-8",
+        "h-min flex flex-col items-center justify-start shrink-0 py-8 gap-16",
         props.className
       )}
     >
