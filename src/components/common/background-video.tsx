@@ -15,17 +15,14 @@ export default function BackgroundVideo() {
   }, []);
 
   return (
-    <div className="fixed opacity-100 -z-50 top-0 left-0 w-screen h-screen object-cover">
-      <div className="absolute top-0 left-0 w-full h-full bg-primary opacity-0"></div>
-      <video
-        ref={videoRef}
-        className="w-full h-full object-fill"
-        autoPlay
-        loop
-        muted
-      >
-        <source src="/videos/bg.mp4" type="video/mp4"></source>
-      </video>
-    </div>
+    <video
+      ref={videoRef}
+      className="absolute top-0 left-0 -z-[100] w-screen h-screen object-fill"
+      autoPlay
+      loop
+      muted
+    >
+      <source src="/videos/bg.mp4" type="video/mp4"></source>
+    </video>
   );
 }

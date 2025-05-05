@@ -64,7 +64,7 @@ export default function SkillCard(props: TesimonialCardProps) {
           "pointer-events-none relative flex flex-col items-center justify-center h-min py-3 px-3 m-1 gap-1  rounded-xl"
         )}
         animate={{
-          backgroundColor: isHover ? "#2D324Eff" : "#2D324E00",
+          backgroundColor: isHover ? "#292d45ff" : "#292d4500",
         }}
         transition={{
           delay: isHover ? 0 : 0.6,

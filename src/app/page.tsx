@@ -88,7 +88,7 @@ export default function Home() {
       layout
       layoutScroll
       className={cn(
-        "p-0 overflow-y-clip justify-start scroll-smooth",
+        "relative p-0 overflow-y-clip justify-start scroll-smooth",
         !isMobile ? "h-screen" : "h-min",
         isRow && !isMobile ? "flex-row" : "flex-column"
       )}
@@ -107,10 +107,11 @@ export default function Home() {
           isRow && !isMobile && "px-32",
           !isMobile && "w-3/5"
         )}
-        transition={{ duration: 0.7 }}
-        animate={{
-          right: !isMobile ? (isRow ? "0%" : "-100%") : "",
+        style={{
+          scrollbarWidth: "none",
+          msOverflowStyle: "none",
         }}
+        transition={{ duration: 0.7 }}
       >
         <About />
         <Skills />

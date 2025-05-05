@@ -41,7 +41,7 @@ export default function TestimonialCard(props: TesimonialCardProps) {
       <motion.div
         className="pointer-events-none relative  m-1 p-4 rounded-2xl flex gap-4 h-min select-none"
         animate={{
-          backgroundColor: isHover ? "#2D324Eff" : "#2D324E00",
+          backgroundColor: isHover ? "#292d45ff" : "#292d4500",
         }}
         transition={{
           delay: isHover ? 0 : 0.6,

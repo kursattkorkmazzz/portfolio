@@ -19,5 +19,5 @@ COPY ./package.json ./package-lock.json ./
 COPY ./public ./public
 COPY --from=builder ./app/node_modules ./node_modules
 COPY --from=builder /app/.next ./.next
-RUN ls -la
+EXPOSE 3000
 CMD ["npm","run","start"]
